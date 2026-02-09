@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import Button from './components/Button'
-import Navbar from './components/Navbar'
-import { useActionState } from 'react'
-import AddUser from './components/AddUser'
-import DisplayUser from './components/DisplayUser'
+// import React, { useState } from 'react'
+// import Button from './components/Button'
+// import Navbar from './components/Navbar'
+// import { useActionState } from 'react'
+// import AddUser from './components/AddUser'
+// import DisplayUser from './components/DisplayUser'
 
 // const App = () => {
 
@@ -83,80 +83,132 @@ import DisplayUser from './components/DisplayUser'
 // }
 
 
+// props
+
 // import React, { useState } from 'react'
 
 
-const App = () => {
+// const App = () => {
 
   
-  const [allUsers, setallUsers] = useState([])
+//   const [allUsers, setallUsers] = useState([])
 
 
-  const [editingIndex, seteditingIndex] = useState("")
+//   const [editingIndex, seteditingIndex] = useState("")
 
 
-  // const seeValue = (event) => {
+//   // const seeValue = (event) => {
 
-  //   console.log(event.target.value);
-  //   setfirstName(event.target.value)
+//   //   console.log(event.target.value);
+//   //   setfirstName(event.target.value)
 
-  // }
+//   // }
 
-  const submitUser = (user) => {
-    console.log('hello');
-    // let user = {
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   profilePicture
+//   const submitUser = (user) => {
+//     console.log('hello');
+//     // let user = {
+//     //   firstName,
+//     //   lastName,
+//     //   email,
+//     //   profilePicture
 
-    // }
-    console.log(user);
-    let newAllUsers = [...allUsers, user]
-    setallUsers(newAllUsers)
-  }
+//     // }
+//     console.log(user);
+//     let newAllUsers = [...allUsers, user]
+//     setallUsers(newAllUsers)
+//   }
 
-  const deleteUser = (index) => {
-    let newAllUsers = [...allUsers]
-    newAllUsers.splice(index, 1)
-    setallUsers(newAllUsers)
+//   const deleteUser = (index) => {
+//     let newAllUsers = [...allUsers]
+//     newAllUsers.splice(index, 1)
+//     setallUsers(newAllUsers)
 
-  }
-
-
-
-  const editUser=(index, user)=>{
-    // let user = {
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   profilePicture
-    // }
-    let newAllUsers= [...allUsers]
-    newAllUsers.splice(index, 1, user)
-    setallUsers(newAllUsers)
-  }
+//   }
 
 
-  const shout = (name) => {
-    alert('shoutttt ' + name)
-  }
+
+//   const editUser=(index, user)=>{
+//     // let user = {
+//     //   firstName,
+//     //   lastName,
+//     //   email,
+//     //   profilePicture
+//     // }
+//     let newAllUsers= [...allUsers]
+//     newAllUsers.splice(index, 1, user)
+//     setallUsers(newAllUsers)
+//   }
+
+
+//   const shout = (name) => {
+//     alert('shoutttt ' + name)
+//   }
+//   return (
+//     <>
+
+//       <Button title="stop" color='btn-danger' func={shout} />
+//       <Button title="go" color='btn-success' />
+//       <Button title="Get ready" color='btn-warning' />
+
+//       <br />
+
+//       <AddUser submitUser={submitUser} />
+     
+
+//       <hr />
+
+//        <DisplayUser allUsers={allUsers} deleteUser={deleteUser} editUser={editUser}/>
+
+//     </>
+//   )
+// }
+
+// export default App
+
+
+// another topic - react router dom
+
+import React from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
+import Navbar from './components/Navbar'
+import Profile from './pages/Profile'
+
+const App = () => {
   return (
     <>
 
-      <Button title="stop" color='btn-danger' func={shout} />
-      <Button title="go" color='btn-success' />
-      <Button title="Get ready" color='btn-warning' />
+      <Navbar/>
+      <Routes>
+       
+        <Route index element={<Home/>} />
 
-      <br />
+        <Route path='/about' element={<About/>} />
+        <Route path='/contact' element={<Contact/>} />
 
-      <AddUser submitUser={submitUser} />
-     
+          {/* Programmatic redirection */}
+        <Route path='/sp-contact' element={< Navigate to={'/contact'}/>}/>   
 
-      <hr />
+        {/* dynamic- routing */}
+        <Route path='/profile/:username' element={< Profile/>} /> 
 
-       <DisplayUser allUsers={allUsers} deleteUser={deleteUser} editUser={editUser}/>
+        {/* wildcard routing */}
+        <Route path='*' element={<NotFound/>} />
 
+        {/* 
+          assignment 
+          1. Nested or children route
+        */}
+
+
+
+      </Routes>
+    
+    
+    
     </>
   )
 }
