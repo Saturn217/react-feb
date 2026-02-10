@@ -90,7 +90,7 @@
 
 // const App = () => {
 
-  
+
 //   const [allUsers, setallUsers] = useState([])
 
 
@@ -153,7 +153,7 @@
 //       <br />
 
 //       <AddUser submitUser={submitUser} />
-     
+
 
 //       <hr />
 
@@ -176,39 +176,50 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import Profile from './pages/Profile'
+import Dashboard from './pages/Dashboard'
+import Tag from './pages/Tag'
 
 const App = () => {
   return (
     <>
 
-      <Navbar/>
+      <Navbar />
       <Routes>
-       
-        <Route index element={<Home/>} />
 
-        <Route path='/about' element={<About/>} />
-        <Route path='/contact' element={<Contact/>} />
+        <Route index element={<Home />} />
 
-          {/* Programmatic redirection */}
-        <Route path='/sp-contact' element={< Navigate to={'/contact'}/>}/>   
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+
+        {/* Programmatic redirection */}
+        <Route path='/sp-contact' element={< Navigate to={'/contact'} />} />
 
         {/* dynamic- routing */}
-        <Route path='/profile/:username' element={< Profile/>} /> 
+        <Route path='/profile/:username' element={< Profile />} />
 
         {/* wildcard routing */}
-        <Route path='*' element={<NotFound/>} />
+        <Route path='*' element={<NotFound />} />
 
         {/* 
           assignment 
-          1. Nested or children route
+          1. Nested or children route  // 
         */}
 
+        {/* <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+        </Route> */}
 
+        <Route path='/dashboard' element={<Dashboard />} >
+          <Route path='tag' element={<Tag />} />
+          <Route path='settings' element={<Settings />} />
+
+        </Route>
 
       </Routes>
-    
-    
-    
+
+
+
     </>
   )
 }
