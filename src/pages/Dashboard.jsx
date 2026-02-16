@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 const Dashboard = () => {
     return (
@@ -9,10 +9,10 @@ const Dashboard = () => {
         <h1>This is the dashboard page</h1>
 
 
-       <a href="/dashboard/settings">Settings</a>
+     
+        <Link to="/dashboard/tag">Tag</Link>
+        <Link to="/dashboard/settings">Settings</Link>
 
-
-         <a href="/dashboard/tag">Tag</a>
         <Outlet />
     </div>
 

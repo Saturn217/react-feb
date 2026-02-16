@@ -178,8 +178,13 @@ import Navbar from './components/Navbar'
 import Profile from './pages/Profile'
 import Dashboard from './pages/Dashboard'
 import Tag from './pages/Tag'
+import Settings from './pages/Settings'
+import Fetch from './pages/Fetch'
+import Formikk from './pages/Formikk'
 
 const App = () => {
+
+  // const [filter, setfilter] = useState([])
   return (
     <>
 
@@ -216,7 +221,15 @@ const App = () => {
 
         </Route>
 
+
+
+        <Route path='/fetch' element={<Fetch />} />
+
       </Routes>
+
+
+          
+
 
 
 
