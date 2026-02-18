@@ -196,6 +196,8 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
 
+        <Route path='/formikk' element={<Formikk/>}/>
+
         {/* Programmatic redirection */}
         <Route path='/sp-contact' element={< Navigate to={'/contact'} />} />
 
@@ -224,6 +226,7 @@ const App = () => {
 
 
         <Route path='/fetch' element={<Fetch />} />
+        
 
       </Routes>
 
